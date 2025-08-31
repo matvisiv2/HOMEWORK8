@@ -5,8 +5,25 @@
 // String's not starts with uppercase character
 // String's starts with uppercase character
 
+function isFirstSymbolInUpperCase(text) {
+    const regexp = /^[A-Z,А-Я,І]/;
+    return regexp.test(text);
+}
 
+function task01() {
+    const text = document.getElementById("task01text").value;
 
+    const res = document.getElementById("task01result");
+    if (isFirstSymbolInUpperCase(text)) {
+        res.style.setProperty("color", "green");
+        res.textContent = "String's starts with uppercase character";
+        console.log("String's starts with uppercase character");
+    } else {
+        res.style.setProperty("color", "red");
+        res.textContent = "String's not starts with uppercase character";
+        console.log("String's not starts with uppercase character");
+    }
+}
 
 
 // 2. Напишіть функцію, яка приймає рядкові дані і виконує перевірку на їх відповідність емейлу. Валідними вважаються всі символи на різних позиціях.
