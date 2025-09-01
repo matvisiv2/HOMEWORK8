@@ -13,23 +13,44 @@ function isFirstSymbolInUpperCase(text) {
 function task01() {
     const text = document.getElementById("task01text").value;
 
-    const res = document.getElementById("task01result");
+    const resElem = document.getElementById("task01result");
     if (isFirstSymbolInUpperCase(text)) {
-        res.style.setProperty("color", "green");
-        res.textContent = "String's starts with uppercase character";
+        resElem.style.setProperty("color", "green");
+        resElem.textContent = "String's starts with uppercase character";
         console.log("String's starts with uppercase character");
     } else {
-        res.style.setProperty("color", "red");
-        res.textContent = "String's not starts with uppercase character";
+        resElem.style.setProperty("color", "red");
+        resElem.textContent = "String's not starts with uppercase character";
         console.log("String's not starts with uppercase character");
     }
 }
 
 
-// 2. Напишіть функцію, яка приймає рядкові дані і виконує перевірку на їх відповідність емейлу. Валідними вважаються всі символи на різних позиціях.
-// 	Приклад роботи:
+// 2. Напишіть функцію,
+//      яка приймає рядкові дані
+//      і виконує перевірку на їх відповідність емейлу.
+//      Валідними вважаються всі символи на різних позиціях.
+// Приклад роботи:
 // checkEmail("Qmail2@gmail.com");
 // true
+
+function checkEmail(email) {
+    // My own regexp
+    // const regexp = /^[A-Za-z][\w-.]*@[\D]+\.[\D]+$/;
+    // Chat GPT regexp
+    const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regexp.test(email);
+}
+
+function task02() {
+    const email = document.getElementById("task02email").value;
+    const result = checkEmail(email);
+
+    const resElem = document.getElementById("task02result");
+    resElem.style.setProperty("color", result ? "green" : "red");
+    resElem.textContent = result;
+    console.log(result);
+}
 
 
 // 3. Напишіть регулярний вираз, який знаходитиме в тексті одну літеру d, за якою йде одна чи більше b, за якими одна d. Запам’ятати знайдені b і наступну за ними d.  Враховувати верхній і нижній регістр.
