@@ -38,7 +38,9 @@ function checkEmail(email) {
     // My own regexp
     // const regexp = /^[A-Za-z][\w-.]*@[\D]+\.[\D]+$/;
     // Chat GPT regexp
-    const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // From JS book
+    const regexp = /[-.\w]+@([\w-]+\.)+[\w-]+/g;
     return regexp.test(email);
 }
 
@@ -53,9 +55,28 @@ function task02() {
 }
 
 
-// 3. Напишіть регулярний вираз, який знаходитиме в тексті одну літеру d, за якою йде одна чи більше b, за якими одна d. Запам’ятати знайдені b і наступну за ними d.  Враховувати верхній і нижній регістр.
+// 3. Напишіть регулярний вираз, 
+// який знаходитиме в тексті одну літеру d, 
+// за якою йде одна чи більше b, 
+// за якими одна d.
+
+// Запам’ятати знайдені b і наступну за ними d.  
+// Враховувати верхній і нижній регістр.
+
 // 	Приклад роботи:
 // Для стрінги "cdbBdbsbz" результат ["dbBd", "bB", "d"]
+
+function task03() {
+    const regexp = /d(b+)(d)/gi;
+
+    const text = document.getElementById("task03text").value;
+    const resElem = document.getElementById("task03result");
+    resElem.textContent = "";
+
+    let result = text.match(regexp);
+    resElem.textContent = result;
+    console.log(result);
+}
 
 
 // 4. Напишіть регулярний вираз, який в рядковому тексті 2 підстрічки буде міняти місцями.
