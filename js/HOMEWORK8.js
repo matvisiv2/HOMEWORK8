@@ -130,6 +130,21 @@ function task05() {
 // checkEmail('my_ma--il@gmail.com');
 // Email is not correct!
 
+function checkEmail2(email) {
+    const regexp = /^[A-Za-z0-9](?:[A-Za-z0-9_]|-(?!-))*@[A-Za-z0-9]+\.[A-Za-z]{2,}/g;
+    return regexp.test(email);
+}
+
+function task06() {
+    const email = document.getElementById("task06text").value;
+    const result = checkEmail2(email);
+
+    const resElem = document.getElementById("task06result");
+    resElem.style.setProperty("color", result ? "green" : "red");
+    resElem.textContent = result;
+    console.log(result);
+}
+
 // 7. Напишіть функцію, яка перевіряє правильність логіна. Правильний логін - рядок від 2 до 10 символів, що містить лише букви та числа, номер не може бути першим. Функція має приймати рядок і знаходити усі числа в цьому рядку, включаючи числа з плаваючою комою (наприклад, 3.4).
 // 	Приклад роботи:
 // checkLogin('ee1.1ret3');
