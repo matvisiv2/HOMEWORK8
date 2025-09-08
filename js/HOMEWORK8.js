@@ -99,6 +99,23 @@ function task04() {
 
 // 5. Напишіть функцію, яка виконуватиме валідацію номера банківської карти (9999-9999-9999-9999).
 
+function task05() {
+    const regexp = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
+
+    const text = document.getElementById("task05text").value;
+    const resElem = document.getElementById("task05result");
+
+    if (text.match(regexp)) {
+        resElem.style.setProperty("color", "green");
+        resElem.textContent = "Valid";
+        console.log("Valid");
+    } else {
+        resElem.style.setProperty("color", "red");
+        resElem.textContent = "Invalid";
+        console.log("Invalid");
+    }
+}
+
 // 6. Напишіть функцію, яка приймає рядкові дані і виконує перевірку на їх відповідність емейлу.
 // 	Вимоги:
 //   Цифри (0-9).
