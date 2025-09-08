@@ -84,6 +84,19 @@ function task03() {
 // Вхідний рядок    "Java Script"
 // Вихід    “Script, Java”
 
+function task04() {
+    const regexp = /(\w+)\s+(\w+)/;
+
+    const text = document.getElementById("task04text").value;
+    const resElem = document.getElementById("task04result");
+    resElem.textContent = "";
+
+    let result = text.replace(regexp, "$2, $1");
+    resElem.textContent = result;
+    console.log(result);
+}
+
+
 // 5. Напишіть функцію, яка виконуватиме валідацію номера банківської карти (9999-9999-9999-9999).
 
 // 6. Напишіть функцію, яка приймає рядкові дані і виконує перевірку на їх відповідність емейлу.
